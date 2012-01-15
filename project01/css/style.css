@@ -1,1 +1,14 @@
-body { background-color:#AAA; }
+body { background-color:#AAA; font-family:sans-serif; }
+header { background-color:#CCC; }
+footer { background-color:#F0F0F0; text-align:center; }
+label { display:inline-block; }
+#content { width:1000px; border:1px solid black; margin-left:auto; margin-right:auto; }
+#content-main { background-color:#FCFCFC; }
+#content-main-form { width:610px; display:inline-block; }
+#navigation { padding:5px 5px 5px 5px; background-color:#000; }
+#navigation a { margin-right:30px; }
+#navigation a:link { text-decoration:none; color:white; font-style:bold; }
+#navigation a:link { text-decoration:none; color:white; font-style:bold; }
+#navigation a:visited { text-decoration:none; color:white; font-style:bold; }
+#navigation a:active { text-decoration:none; color:white; font-style:bold; }
+#navigation a:hover { text-decoration:none; color:white; font-style:bold; }
