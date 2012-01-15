@@ -1,13 +1,17 @@
 body { background-color:#AAA; font-family:sans-serif; padding:0px; margin:0px;}
-header { background-color:#CCC; padding:0px; margin:0px; }
-h1 { padding:0px; margin:0px;}
+header { background-color:#CCC; padding:5px; }
+h1 { padding:0px; margin:0px; letter-spacing:-2px; font-style:bolder; }
+header span { color:#666; font-size:0.9em; margin:0; padding:0;}
 footer { background-color:#F0F0F0; text-align:center; padding-top:5px; padding-bottom:5px; }
 label { display:inline-block; }
+dt { width:200px; float:left; display:inline-block; }
+dd { width:235px; float:right; display:inline-block; }
+fieldset { border:none; }
 #content { width:1000px; border:1px solid black; margin-left:auto; margin-right:auto; }
 #content-main { background-color:#FCFCFC; }
-#content-main-form { width:610px; display:inline-block; }
+#content-main-form { width:500px; display:inline-block; }
 #content-main-result { background-color:#F0F0FF; display:inline-block; float:right; padding:5px;}
-#navigation { padding:5px 5px 5px 5px; background-color:#000; }
+#navigation { padding:10px; background-color:#000; }
 #navigation a { margin-right:30px; }
 #navigation a:link { text-decoration:none; color:white; font-style:bold; }
 #navigation a:link { text-decoration:none; color:white; font-style:bold; }
