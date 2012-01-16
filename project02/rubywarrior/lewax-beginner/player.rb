@@ -1,7 +1,7 @@
 class Player
 	def play_turn(warrior)
 		@health = 20 if @health == nil
-		@direction = :backward if @direction == nil
+		@direction = :forward if @direction == nil
 		
 		felt = warrior.feel(@direction)
 		
@@ -13,7 +13,7 @@ class Player
 		elsif felt.captive?
 			warrior.rescue!(@direction)
 		elsif felt.wall?
-			@direction = :forward
+			warrior.pivot!
 		elsif warrior.health < @health
 			warrior.walk!(@direction)
 		elsif warrior.health < 20
