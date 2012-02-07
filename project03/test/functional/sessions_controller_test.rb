@@ -24,14 +24,4 @@ class SessionsControllerTest < ActionController::TestCase
     assert_redirected_to store_url
   end
 
-  test "should get create" do
-    get :create
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get :destroy
-    assert_response :success
-  end
-
 end
