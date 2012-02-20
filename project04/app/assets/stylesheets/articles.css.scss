@@ -8,8 +8,6 @@
 		height:24px;
 	}
 	
-	
-	
 	thead tr {
 		position: relative;
 		display: block;
@@ -17,6 +15,7 @@
 
 	table, th, td {
 		border-collapse:collapse;
+		margin:10px;
 	}
 	
 	th, td {
@@ -26,6 +25,7 @@
 	
 	td {
 		padding:2px;
+		height:40px;
 	}
 	
 	th {
@@ -34,7 +34,7 @@
 	
 	tbody {
 		display: block;
-		height: 262px;
+		height: 400px;
 		overflow: auto;
 		width: 100%;
 	}
