@@ -1,29 +1,26 @@
-<h1>Listing articles</h1>
+<h1>All the World's Articles</h1>
 
 <table>
-  <tr>
+  <tr class='table_head_row'>
     <th>Title</th>
-    <th>Author</th>
+    <th>Author Name</th>
     <th>Body</th>
-    <th>Creation date</th>
-    <th>Times editted</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Creation Date</th>
+    <th class='links_header'></th>
   </tr>
 
 <% @articles.each do |article| %>
-  <tr>
+  <tr class="<%= cycle('row_odd', 'row_even') %>">
     <td><%= article.title %></td>
     <td><%= article.author %></td>
-    <td><%= article.body %></td>
+    <td><%= truncate(strip_tags(article.body), length: 80) %></td>
     <td><%= article.creation_date %></td>
-    <td><%= article.times_editted %></td>
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %></td>
+    <td class='links_cell'><%= link_to image_tag("show.png"), article %>
+    <%= link_to link_to image_tag("edit.png"), edit_article_path(article) %>
+    <%= link_to link_to image_tag("destroy.png"), article, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+	<tr class='last_row'><td></td><td></td><td></td><td></td></tr>
 </table>
 
 <br />
