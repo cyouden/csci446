@@ -3,6 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .articles {
+	img {
+		width:24px;
+		height:24px;
+	}
+	
+	
+	
+	thead tr {
+		position: relative;
+		display: block;
+	}
 
 	table, th, td {
 		border-collapse:collapse;
@@ -13,8 +24,24 @@
 		border-left:medium solid #000;
 	}
 	
+	td {
+		padding:2px;
+	}
+	
 	th {
 		border-top:medium solid #000;
+	}
+	
+	tbody {
+		display: block;
+		height: 262px;
+		overflow: auto;
+		width: 100%;
+	}
+	
+	tbody tr {
+		width:100%;
+		display:block;
 	}
 	
 	.last_row td {
@@ -22,21 +49,15 @@
 	}
 	
 	.row_even {
-		background:#fff;
-		
-		
+		background:#fff;	
 	}
 	
 	.row_odd {
 		background:#eee;
-		
-		a:hover {
-			background:#eee;
-		}
 	}
 	
 	.table_head_row {
-		background:#ccc;
+		
 	}
 	
 	.links_cell, .links_header {
@@ -44,9 +65,44 @@
 		background:#fff;
 	}
 	
+	
+	.title_column, .author_column, .creation_date_column {
+		width:100px;
+	}
+	
+	.body_column {
+		width:300px;
+	}
+	
+	.title_column_head, .author_column_head, .creation_date_column_head, .body_column_head {
+		background:#ccc;
+	}
+	
+	.title_column_head, .author_column_head {
+		width:100px;
+	}
+	
+	.creation_date_column_head {
+		width:101px;
+	}
+	
+	.body_column_head {
+		width:295px;
+	}
+	
 	.links_cell {
+		width:100px;
 		a:hover {
 			background:#fff;
 		}
+	}
+	
+	.page_head, .new_article {
+		display:inline-block;
+	}
+	
+	.new_article {
+		margin-left:200px;
+		a { text-decoration: none; }
 	}
 }

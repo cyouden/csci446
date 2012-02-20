@@ -1,28 +1,29 @@
-<h1>All the World's Articles</h1>
+<div class='page_head'><h1>All the World's Articles</h1></div>
+<div class='new_article'><%= link_to image_tag("new.png") + 'Create an Article', new_article_path %></div>
 
 <table>
-  <tr class='table_head_row'>
-    <th>Title</th>
-    <th>Author Name</th>
-    <th>Body</th>
-    <th>Creation Date</th>
-    <th class='links_header'></th>
-  </tr>
-
+	<thead>
+		<tr class='table_head_row'>
+			<th class="title_column_head">Title</th>
+			<th class="author_column_head">Author Name</th>
+			<th class="body_column_head">Body</th>
+			<th class="creation_date_column_head">Creation Date</th>
+			<th class='links_header'></th>
+		</tr>
+	</thead>
+	
+	<tbody>
 <% @articles.each do |article| %>
-  <tr class="<%= cycle('row_odd', 'row_even') %>">
-    <td><%= article.title %></td>
-    <td><%= article.author %></td>
-    <td><%= truncate(strip_tags(article.body), length: 80) %></td>
-    <td><%= article.creation_date %></td>
-    <td class='links_cell'><%= link_to image_tag("show.png"), article %>
-    <%= link_to link_to image_tag("edit.png"), edit_article_path(article) %>
-    <%= link_to link_to image_tag("destroy.png"), article, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+		<tr class="<%= cycle('row_odd', 'row_even') %>">
+			<td class="title_column"><%= article.title %></td>
+			<td class="author_column"><%= article.author %></td>
+			<td class="body_column"><%= truncate(strip_tags(article.body), length: 80) %></td>
+			<td class="creation_date_column"><%= article.creation_date %></td>
+			<td class='links_cell'><%= link_to image_tag("show.png"), article %>
+			<%= link_to link_to image_tag("edit.png"), edit_article_path(article) %>
+			<%= link_to link_to image_tag("destroy.png"), article, confirm: 'Are you sure?', method: :delete %></td>
+		</tr>
 <% end %>
-	<tr class='last_row'><td></td><td></td><td></td><td></td></tr>
+	</tbody>
+	
 </table>
-
-<br />
-
-<%= link_to 'New Article', new_article_path %>
