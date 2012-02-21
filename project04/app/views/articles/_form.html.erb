@@ -24,14 +24,20 @@
     <%= f.text_area :body %>
   </div>
   <div class="field">
-    <%= f.label :creation_date %><br />
-    <%= f.date_select :creation_date %>
+    <%= f.hidden_field :creation_date, :value => Date.today.to_s %>
   </div>
   <div class="field">
-    <%= f.label :times_editted %><br />
-    <%= f.number_field :times_editted %>
+		<% if f.object.new_record? %>
+    <%= f.hidden_field :times_editted, :value => 0 %>
+		<% else %>
+		<%= f.hidden_field :times_editted, :value => @article.times_editted + 1 %>
+		<% end %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+		<% if f.object.new_record? %>
+    <%= f.submit "Create!" %>
+		<% else %>
+		<%= f.submit "Save Changes" %>
+		<% end %>
   </div>
 <% end %>
