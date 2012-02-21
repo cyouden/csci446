@@ -1,4 +1,8 @@
-<h1>Editing article</h1>
+<h4 class='subtitle'>...my cousin works for Bit.ly</h4>
+
+<span class='page_top_link'><%= link_to image_tag('back.png') + ' list all articles', articles_path %></span>
+
+<h2>Editing "<%= @article.title %>"</h2>
 
 <%= render 'form' %>
 
