@@ -1,7 +1,9 @@
 <h4 class='subtitle'>...with a name .com hipsters love!</h4>
 
-<div class='page_head'><h2>All the World's Articles</h2></div>
-<div class='new_article'><%= link_to image_tag("new.png") + 'Create an Article', new_article_path, :title => "Create a new article" %></div>
+<div class='index_head'>
+	<div class='page_head'><h2>All the World's Articles</h2></div>
+	<div class='new_article'><%= link_to image_tag("new.png") + 'Create an Article', new_article_path, :title => "Create a new article" %></div>
+</div>
 
 <table>
 	<thead>
@@ -31,4 +33,4 @@
 	</tbody>
 </table>
 
-<h5><%= @articles.count %>&nbsp;article<%= (@articles.count == 1) ? '' : 's' %>.</h5>
+<h5 class='article_count'><%= @articles.count %>&nbsp;article<%= (@articles.count == 1) ? '' : 's' %>.</h5>
