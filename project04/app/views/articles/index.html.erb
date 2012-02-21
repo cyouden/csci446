@@ -1,7 +1,7 @@
 <h4 class='subtitle'>...with a name .com hipsters love!</h4>
 
 <div class='page_head'><h2>All the World's Articles</h2></div>
-<div class='new_article'><%= link_to image_tag("new.png") + 'Create an Article', new_article_path %></div>
+<div class='new_article'><%= link_to image_tag("new.png") + 'Create an Article', new_article_path, :title => "Create a new article" %></div>
 
 <table>
 	<thead>
@@ -21,9 +21,11 @@
 			<td class="author_column"><%= article.author %></td>
 			<td class="body_column"><%= truncate(strip_tags(article.body), length: 80) %></td>
 			<td class="creation_date_column"><%= article.creation_date %></td>
-			<td class='links_cell'><%= link_to image_tag("show.png"), article %>
-			<%= link_to link_to image_tag("edit.png"), edit_article_path(article) %>
-			<%= link_to link_to image_tag("destroy.png"), article, confirm: 'Are you sure?', method: :delete %></td>
+			<td class='links_cell'>
+				<%= link_to image_tag("show.png"), article, :title => "View this article" %>
+				<%= link_to link_to image_tag("edit.png"), edit_article_path(article), :title => "Edit this article" %>
+				<%= link_to link_to image_tag("destroy.png"), article, confirm: 'Are you sure?', method: :delete, :title => "Delete this article" %>
+			</td>
 		</tr>
 <% end %>
 	</tbody>
