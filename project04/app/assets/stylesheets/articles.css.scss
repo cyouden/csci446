@@ -64,8 +64,7 @@
 		border-width:0;
 		background:#fff;
 	}
-	
-	
+		
 	.title_column, .author_column, .creation_date_column {
 		width:100px;
 	}
@@ -92,9 +91,7 @@
 	
 	.links_cell {
 		width:100px;
-		a:hover {
-			background:#fff;
-		}
+		a:hover {	background:#fff; }
 	}
 	
 	.page_head, .new_article {
@@ -103,6 +100,13 @@
 	
 	.new_article {
 		margin-left:200px;
-		a { text-decoration: none; }
+	}
+	
+	a { text-decoration: none; }
+	
+	a:hover { background:#fff; color:#000; }
+	
+	.page_top_link {
+		margin-right:20px;
 	}
 }
