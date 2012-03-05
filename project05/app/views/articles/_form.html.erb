@@ -1,0 +1,43 @@
+<%= form_for(@article) do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :creation_date, :value => Date.today.to_s %>
+  </div>
+  <div class="field">
+		<% if f.object.new_record? %>
+    <%= f.hidden_field :times_editted, :value => 0 %>
+		<% else %>
+		<%= f.hidden_field :times_editted, :value => @article.times_editted + 1 %>
+		<% end %>
+  </div>
+  <div class="actions">
+		<% if f.object.new_record? %>
+    <%= f.submit "Create!" %>
+		<% else %>
+		<%= f.submit "Save Changes" %>
+		<% end %>
+  </div>
+<% end %>

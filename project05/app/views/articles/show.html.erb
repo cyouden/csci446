@@ -1,0 +1,16 @@
+<h4 class='subtitle'>...what's "Articl" in Spanish anyway?</h4>
+<p id="notice"><%= notice %></p>
+
+<span class='page_top_link'><%= link_to image_tag('back.png') + ' list all articles', articles_path, :title => "Go to the article list" %></span>
+<span class='page_top_link'><%= link_to image_tag('edit.png') + ' edit', edit_article_path(@article), :title => "Edit this article" %></span>
+<span class='page_top_link'><%= link_to link_to image_tag("destroy.png") + ' delete', @article, confirm: 'Are you sure?', method: :delete, :title => "Delete this article" %></span>
+<span class='page_top_link'><a href='#' title="Email this article"><%= image_tag("email.png") + ' email' %></a></span>
+
+<p>
+  <h2><%= @article.title %></h2>
+  <h5>by <%= @article.author %>. <%= @article.times_editted %> edits since <%= @article.creation_date %>.</h5>
+</p>
+
+<p>
+  <%=raw @article.body %>
+</p>

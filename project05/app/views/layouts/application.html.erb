@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Articl.es -- All the World's Articles (with a name .com hopsters love)</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class='<%= controller.controller_name %>'>
+	<h1 id='site_head'>Articl.es</h1>
+	<%= yield %>
+</body>
+</html>
