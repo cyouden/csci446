@@ -1,0 +1,9 @@
+%h4.subtitle ...not just for the country of Spain
+
+%span.page_top_link= link_to image_tag('back.png') + ' list all articles', articles_path, :title => "Go to the article list"
+
+%h2 Creating a New Article
+
+= render 'form'
+
+= link_to 'Back', articles_path
