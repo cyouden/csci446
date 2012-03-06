@@ -5,7 +5,7 @@
     %h2 All the World's Articles
   .new_article
     = link_to image_tag("new.png") + "Create an Article", new_article_path, :title => "Create a new article"
-
+= params[:page]
 %table
   %thead
     %tr.table_head_row
@@ -16,7 +16,7 @@
       %th.links_header
   
   %tbody
-    - @articles.each do |article|
+    - Article.paginate(:page => params[:page], :per_page => 10).each do |article|
       %tr{ :class=> cycle('row_odd', 'row_even') }
         %td.title_column= article.title
         %td.author_column= Author.find(article.author_id).name
@@ -25,8 +25,10 @@
         %td.links_cell
           = link_to image_tag("show.png"), article, :title => "View this article"
           = link_to link_to image_tag("edit.png"), edit_article_path(article), :title => "Edit this article"
-          = link_to link_to image_tag("destroy.png"), article, confirm: 'Are you sure?', method: :delete, :title => "Delete this article"
+          = link_to link_to image_tag("destroy.png"), article, confirm: 'Are you sure?', method: :delete, :title => "Delete this article"       
 
 %h5.article_count
   = @articles.count 
   = 'article'.html_safe + ((@articles.count == 1) ? '' : 's' + '.')
+  
+= will_paginate Article.paginate(:page => params[:page], :per_page => 10)  
