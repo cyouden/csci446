@@ -1,10 +1,10 @@
 %html
 %head
-  %title Articl.es -- All the World's Articles (with a name .com hopsters love)
-  = stylesheet_link_tag    "application"
+  %title Articl.es -- All the World's Articles (with a name .com hipsters love)
+  = stylesheet_link_tag "application"
   = javascript_include_tag "application"
   = csrf_meta_tags
 
-%body{ :class => <%= controller.controller_name %>}
-	%h1#site_head Articl.es
-	= yield
+%body{ :class => controller.controller_name }
+  %h1#site_head Articl.es
+  = yield

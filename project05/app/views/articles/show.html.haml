@@ -5,10 +5,17 @@
 %span.page_top_link= link_to image_tag('edit.png') + ' edit', edit_article_path(@article), :title => "Edit this article"
 %span.page_top_link= link_to link_to image_tag("destroy.png") + ' delete', @article, confirm: 'Are you sure?', method: :delete, :title => "Delete this article"
 %span.page_top_link
-  %a{ :href => '#' :title => "Email this article"}= image_tag("email.png") + ' email'
+  %a{ :href => '#', :title => "Email this article"}= image_tag("email.png") + ' email'
 
 %p
   %h2= @article.title
-  %h5= 'by' + @article.author + '.' + @article.times_editted + 'edits since' + @article.creation_date + '.'
+  %h5
+    by
+    =@article.author
+    \.
+    =@article.times_editted
+    edits since
+    =@article.creation_date
+    \.
 
-%p= raw @article.body %>
+%p= raw @article.body
