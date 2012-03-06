@@ -11,11 +11,9 @@
   %h2= @article.title
   %h5
     by
-    =@article.author
-    \.
+    = "#{@article.author.name}."
     =@article.times_editted
     edits since
-    =@article.creation_date
-    \.
+    ="#{@article.creation_date}."
 
 %p= raw @article.body
