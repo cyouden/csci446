@@ -15,9 +15,9 @@
     = f.text_field :title
  
   .field
-    = f.label :author
+    = f.label :author_id
     %br/
-    = f.text_field :author
+    = f.select :author_id, Author.all.map { |a| [a.name, a.id] }
 
   .field
     = f.label :body
