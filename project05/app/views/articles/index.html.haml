@@ -1,29 +1,35 @@
 %h4.subtitle ...with a name .com hipsters love!
 
 .index_head
-	.page_head
-        %h2 All the World's Articles
-	.new_article= link_to image_tag("new.png") + 'Create an Article', new_article_path, :title => "Create a new article"
+  .page_head
+    %h2 All the World's Articles
+  .new_article
+    = link_to image_tag("new.png") 
+    Create an Article
+    new_article_path, :title => "Create a new article"
 
 %table
-	%thead
-		%tr.table_head_row
-			%th.title_column_head Title
-			%th.author_column_head Author Name
-			%th.body_column_head Body
-			%th.creation_date_column_head Creation Date
-			%th.links_header
-	
-	%tbody
-        -@articles.each do |article| %>
-               %tr{:class=>"<%= cycle('row_odd', 'row_even') %>"}
-                    %td.title_column= article.title
-                    %td.author_column= article.author
-                    %td.body_column= truncate(strip_tags(article.body), length: 80)
-                    %td.creation_date_column= article.creation_date
-                    %td.links_cell
-                        = link_to image_tag("show.png"), article, :title => "View this article"
-                        = link_to link_to image_tag("edit.png"), edit_article_path(article), :title => "Edit this article"
-                        = link_to link_to image_tag("destroy.png"), article, confirm: 'Are you sure?', method: :delete, :title => "Delete this article"
+  %thead
+    %tr.table_head_row
+      %th.title_column_head Title
+      %th.author_column_head Author Name
+      %th.body_column_head Body
+      %th.creation_date_column_head Creation Date
+      %th.links_header
+  
+  %tbody
+    - @articles.each do |article|
+      %tr{ :class=> cycle('row_odd', 'row_even') }
+        %td.title_column= article.title
+        %td.author_column= article.author
+        %td.body_column= truncate(strip_tags(article.body), length: 80)
+        %td.creation_date_column= article.creation_date
+        %td.links_cell
+          = link_to image_tag("show.png"), article, :title => "View this article"
+          = link_to link_to image_tag("edit.png"), edit_article_path(article), :title => "Edit this article"
+          = link_to link_to image_tag("destroy.png"), article, confirm: 'Are you sure?', method: :delete, :title => "Delete this article"
 
-%h5.article_count= @articles.count + '&nbsp;article' + (@articles.count == 1) ? '' : 's' + '.'
+%h5.article_count
+  = @articles.count 
+  &nbsp;article
+  = (@articles.count == 1) ? '' : 's' + '.'

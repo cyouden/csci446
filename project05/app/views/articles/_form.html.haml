@@ -7,7 +7,7 @@
 
       %ul
         - @article.errors.full_messages.each do |msg| 
-            %li= msg 
+          %li= msg 
 
   .field
     = f.label :title
@@ -29,12 +29,12 @@
   
   .field
     - if f.object.new_record?
-        = f.hidden_field :times_editted, :value => 0
+      = f.hidden_field :times_editted, :value => 0
     - else
-        = f.hidden_field :times_editted, :value => @article.times_editted + 1
+      = f.hidden_field :times_editted, :value => @article.times_editted + 1
         
   .actions
     - if f.object.new_record?
-        = f.submit "Create!"
+      = f.submit "Create!"
     - else
-		= f.submit "Save Changes"
+      = f.submit "Save Changes"
