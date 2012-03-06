@@ -9,7 +9,8 @@
 
 Author.delete_all
 
-authors = Author.create(name: "That One Guy")
+authors = Author.create(name: "Brock Obama", image_file_name="0003-brockobama.png",
+                        image_content_type="image/png", image_file_size="230256")
 
 Article.delete_all
 
