@@ -19,7 +19,7 @@
     - @articles.each do |article|
       %tr{ :class=> cycle('row_odd', 'row_even') }
         %td.title_column= article.title
-        %td.author_column= article.author
+        %td.author_column= Author.find(article.author_id).name
         %td.body_column= truncate(strip_tags(article.body), length: 80)
         %td.creation_date_column= article.creation_date
         %td.links_cell
