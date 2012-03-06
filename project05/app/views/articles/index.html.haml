@@ -29,5 +29,4 @@
 
 %h5.article_count
   = @articles.count 
-  &nbsp;article
-  = (@articles.count == 1) ? '' : 's' + '.'
+  = 'article'.html_safe + ((@articles.count == 1) ? '' : 's' + '.')
