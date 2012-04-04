@@ -11,7 +11,10 @@
     = f.text_field :username
   .field
     = f.label :password
-    = f.text_field :password
+    = f.password_field :password
+  .field
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
   .field
     = f.label :firstname
     = f.text_field :firstname
@@ -21,5 +24,8 @@
   .field
     = f.label :email
     = f.text_field :email
+  .field
+    = f.label :avatar
+    = f.file_field :avatar
   .actions
     = f.submit 'Save'
