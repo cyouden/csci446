@@ -49,5 +49,8 @@ module Gamez
     config.generators do |g|
         g.template_engine :haml
     end 
+    
+    #generate sass instead of scss
+    config.sass.preferred_syntax = :sass
   end
 end
