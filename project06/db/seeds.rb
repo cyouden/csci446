@@ -6,17 +6,28 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.delete_all
+Game.delete_all
+Role.delete_all
+
 users = User.create([
-    { 
-      username: 'cyouden', 
-      password: BCrypt::Password.create('secret'),
-      firstname: 'Christopher',
-      lastname: 'Youden',
-      email: 'cyouden@mines.edu' 
-    }])
+  { 
+    username: 'cyouden', 
+    password: BCrypt::Password.create('secret'),
+    firstname: 'Christopher',
+    lastname: 'Youden',
+    email: 'cyouden@mines.edu' 
+  }
+])
     
 games = Game.create([
-    {
-      title: "That One Game Wiht The Pew Pew",
-      rating: "Unrated" 
-    }])
+  {
+    title: "That One Game Wiht The Pew Pew",
+    rating: "Unrated" 
+  }
+])
+    
+roles = Role.create([
+  { name: "Member" },
+  { name: "Admin"  }
+])
