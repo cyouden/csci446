@@ -11,7 +11,7 @@
   - @games.each do |game|
     %tr
       %td= game.title
-      %td= game.rating
+      %td= Rating.find_by_id(game.rating).name
       %td= link_to 'Show', game
       %td= link_to 'Edit', edit_game_path(game)
       %td= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete
