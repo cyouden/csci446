@@ -9,6 +9,12 @@
 User.delete_all
 Game.delete_all
 Role.delete_all
+Rating.delete_all
+
+roles = Role.create([
+  { name: "Member" },
+  { name: "Admin"  }
+])
 
 users = User.create([
   { 
@@ -16,18 +22,28 @@ users = User.create([
     password: BCrypt::Password.create('secret'),
     firstname: 'Christopher',
     lastname: 'Youden',
-    email: 'cyouden@mines.edu' 
+    email: 'cyouden@mines.edu',
+    role_id: Role.where(:name => "Admin").first.id
+  },
+  {
+    username: 'fbar', 
+    password: BCrypt::Password.create('secret'),
+    firstname: 'Foo',
+    lastname: 'Bar',
+    email: 'foobar@barfoo.internet',
+    role_id: Role.where(:name => "Member").first.id
   }
+])
+    
+Rating.create([
+  { name: "Unrated" }
 ])
     
 games = Game.create([
   {
-    title: "That One Game Wiht The Pew Pew",
-    rating: "Unrated" 
+    title: "That One Game With The Pew Pew",
+    rating: Rating.where(:name => "Unrated").first.id, 
+    user_id: users.first.id
   }
 ])
-    
-roles = Role.create([
-  { name: "Member" },
-  { name: "Admin"  }
-])
+

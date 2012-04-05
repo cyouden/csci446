@@ -11,11 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120405021752) do
+ActiveRecord::Schema.define(:version => 20120405043326) do
 
   create_table "games", :force => true do |t|
     t.string   "title"
-    t.string   "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "rating"
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20120405021752) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "role_id"
   end
 
 end

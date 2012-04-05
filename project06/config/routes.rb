@@ -1,4 +1,6 @@
 Gamez::Application.routes.draw do
+  resources :ratings
+
   get "session/new"
 
   get "session/create"
