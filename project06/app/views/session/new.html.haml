@@ -1,2 +1,8 @@
-%h1 Session#new
-%p Find me in app/views/session/new.html.haml
+%h1 Log In
+.p 
+  First time here? 
+  =link_to "Register.", new_user_path
+
+= render 'form'
+
+= link_to 'Back', games_path

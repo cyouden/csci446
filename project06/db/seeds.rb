@@ -19,7 +19,7 @@ roles = Role.create([
 users = User.create([
   { 
     username: 'cyouden', 
-    password: BCrypt::Password.create('secret'),
+    password: 'secret',
     firstname: 'Christopher',
     lastname: 'Youden',
     email: 'cyouden@mines.edu',
@@ -27,7 +27,7 @@ users = User.create([
   },
   {
     username: 'fbar', 
-    password: BCrypt::Password.create('secret'),
+    password: 'secret',
     firstname: 'Foo',
     lastname: 'Bar',
     email: 'foobar@barfoo.internet',
@@ -36,7 +36,11 @@ users = User.create([
 ])
     
 Rating.create([
-  { name: "Unrated" }
+  { name: "Unrated"  },
+  { name: "Amazing"  },
+  { name: "Good"     },
+  { name: "Meh."     },
+  { name: "Horrible" }
 ])
     
 games = Game.create([
