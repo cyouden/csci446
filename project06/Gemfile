@@ -11,6 +11,7 @@ gem 'bcrypt-ruby'
 gem 'will_paginate'
 gem 'authlogic'
 gem 'declarative_authorization'
+gem 'recaptcha'
 
 # Gems used only for assets and not required
 # in production environments by default.
