@@ -1,21 +1,23 @@
-class SessionController < ApplicationController
-  skip_before_filter :authorize
+class SessionController < ApplicationController  
   def new
   end
 
   def create
-    user = User.find_by_username(params[:username])
-    if user and user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to games_path
-    else
-      redirect_to login_url, notice: "Invalid username/password combination"
-    end
+		logout_keeping_session!
+		user = User.authenticate(parems[:username], params[:password])
+	 
+		if user
+			self.current_user = user
+			redirect_to root_url, notice: "Logged in successfully"
+		else
+			@username = params[:username]
+			flash[:notice] = "Invalid username and/or password"
+			render :action => 'new'	 
+		end
   end
 
   def destroy
-    session[:user_id] = nil
+    logout_killing_session!
     redirect_to games_path, notice: "Logged out"
   end
-
 end
