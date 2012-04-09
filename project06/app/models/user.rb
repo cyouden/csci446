@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
     c.crypto_provider = Authlogic::CryptoProviders::BCrypt
     c.crypted_password_field = :password_digest
   end
+  
+  def role_symbols 
+    [role.name.underscore.to_sym]
+  end
 end

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :authorize
+  before_filter :set_current_user
   #filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user
   
@@ -20,5 +20,9 @@ class ApplicationController < ActionController::Base
     def current_user
       return @current_user if defined?(@current_user)
       @current_user = current_user_session && current_user_session.user
+    end
+    
+    def set_current_user
+      Authorization.current_user = current_user
     end
 end
