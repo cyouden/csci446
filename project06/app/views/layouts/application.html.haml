@@ -1,12 +1,27 @@
 %html
-%head
-  %title Gamez
-  = stylesheet_link_tag    "application"
-  = javascript_include_tag "application"
-  = csrf_meta_tags
-%body
+  %head
+    %title Gamez
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    
+  %body
+    = if current_user.role_symbols == [:guest]
+      #guest_options
+        = link_to "Log In", login_url
+        = link_to "register", new_user_url
+        
+    = if current_user.role_symbols == [:member]
+      #member_options
+        Logged in as
+        = link_to (current_user.firstname + ' ' + current_user.lastname), current_user
+        ,
+        = current_user.role.name
+        .
+        = link_to "My Games", root_url #TODO
+        = link_to "Logout", logout_url #TODO: doesn't work
 
-#site_title
-  = link_to "Gamez", root_url
+    #site_title
+      = link_to "Gamez", root_url
 
-= yield
+    = yield
