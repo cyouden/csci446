@@ -1,0 +1,12 @@
+%html
+%head
+  %title Gamez
+  = stylesheet_link_tag    "application"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+%body
+
+#site_title
+  = link_to "Gamez", root_url
+
+= yield
