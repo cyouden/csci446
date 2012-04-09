@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120405043326) do
+ActiveRecord::Schema.define(:version => 20120409012239) do
 
   create_table "games", :force => true do |t|
     t.string   "title"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20120405043326) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "role_id"
+    t.string   "persistence_token"
   end
 
 end

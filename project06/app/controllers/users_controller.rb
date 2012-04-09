@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  filter_resource_access
+  skip_before_filter :authorize, only: :create, :new
 
   # GET /users
   # GET /users.json
@@ -42,12 +42,10 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-		logout_keeping_session!
     @user = User.new(params[:user])
-		
+
     respond_to do |format|
       if @user.save
-				self.current_user = @user
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else

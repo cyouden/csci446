@@ -1,17 +1,17 @@
 Gamez::Application.routes.draw do
   resources :ratings
   
-  controller :session do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
-  end
-  
   resources :games
 
   resources :roles
 
   resources :users
+  
+  resources :user_sessions
+  
+  controller :user_sessions do
+    get 'login' => :new
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
