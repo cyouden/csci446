@@ -5,7 +5,7 @@ authorization do
 	
 	role :guest do
 		has_permission_on :games, :to => [:index]
-		has_permission_on :users, :sessions :to => [:new, :create]
+		has_permission_on [:users, :sessions], :to => [:new, :create]
 	end
 	
 	role :member do

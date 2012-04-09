@@ -11,6 +11,7 @@ Gamez::Application.routes.draw do
   
   controller :user_sessions do
     get 'login' => :new
+    delete 'logout' => :destroy
   end
 
   # The priority is based upon order of creation:
