@@ -6,19 +6,19 @@
     = csrf_meta_tags
     
   %body
-    = if current_user.role_symbols == [:guest]
-      #guest_options
+    #user_management
+      - if not current_user
         = link_to "Log In", login_url
-        = link_to "register", new_user_url
-        
-    = if current_user.role_symbols == [:member]
-      #member_options
+        = link_to "Register", new_user_url
+      - else
         Logged in as
         = link_to (current_user.firstname + ' ' + current_user.lastname), current_user
-        ,
-        = current_user.role.name + "."
-        = link_to "My Games", root_url #TODO
-        = link_to "Logout", logout_url #TODO: doesn't work
+        = ", " + current_user.role.name + "."
+        - if current_user.role_symbols == [:member]
+          = link_to "My Games", root_url #TODO
+        - elsif current_user.role_symbols == [:admin]
+          = link_to "Admin", root_url #TODO
+        = link_to "Logout", logout_url
 
     #site_title
       = link_to "Gamez", root_url
