@@ -1,0 +1,15 @@
+%h1 Log In
+.p 
+  First time here? 
+  =link_to "Register.", new_user_path
+
+= form_for @user_session, :url => user_sessions_path do |f|
+  = f.label :username
+  = f.text_field :username
+  .br
+  = f.label :password
+  = f.password_field :password
+  .br
+  = f.submit "Login"
+
+= link_to 'Back', games_path
