@@ -12,7 +12,7 @@ authorization do
 		includes :guest
 		has_permission_on :games, :to => [:new, :create, :show]
 		has_permission_on :games, :to => [:edit, :update] do
-			if_attribute :user => is { user }
+			if_attribute :user_id => is { user.id }
 		end
 		has_permission_on :users, :to => [:edit, :update] do
 			if_attribute :user => is { user }

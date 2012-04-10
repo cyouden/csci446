@@ -22,7 +22,7 @@
         = User.find_by_id(game.user_id).fullname
       - if permitted_to? :show, @game
         %td= link_to 'Show', game
-      - if permitted_to? :edit, @game
+      - if permitted_to? :edit, game
         %td= link_to 'Edit', edit_game_path(game)
       - if permitted_to? :destroy, @game
         %td= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete
