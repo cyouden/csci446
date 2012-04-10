@@ -16,10 +16,11 @@ roles = Role.create([
   { name: "Admin"  }
 ])
 
-users = User.create([
+users = User.create!([
   { 
     username: 'cyouden', 
     password: 'secret',
+    password_confirmation: 'secret',
     firstname: 'Christopher',
     lastname: 'Youden',
     email: 'cyouden@mines.edu',
@@ -28,9 +29,10 @@ users = User.create([
   {
     username: 'fbar', 
     password: 'secret',
+    password_confirmation: 'secret',
     firstname: 'Foo',
     lastname: 'Bar',
-    email: 'foobar@barfoo.internet',
+    email: 'foobar@barfoo.net',
     role_id: Role.where(:name => "Member").first.id
   }
 ])

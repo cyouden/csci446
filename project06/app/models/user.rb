@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
   def role_symbols 
     [role.name.underscore.to_sym]
   end
+  
+  def fullname
+    firstname + " " + lastname
+  end
 end

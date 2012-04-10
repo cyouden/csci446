@@ -4,6 +4,7 @@
   %tr
     %th Title
     %th Rating
+    %th Date Added
     %th
     %th
     %th
@@ -12,6 +13,10 @@
     %tr
       %td= game.title
       %td= Rating.find_by_id(game.rating).name
+      %td
+        = game.created_at 
+        by
+        = User.find_by_id(game.user_id).fullname
       %td= link_to 'Show', game
       %td= link_to 'Edit', edit_game_path(game)
       %td= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete
