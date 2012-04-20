@@ -1,5 +1,6 @@
 var guessesLeft = 10;
 var highScores = new Array([9, "HarryJamesPotter"], [3, "ZedCthulhu"], [2, "NearlyDied"]);
+var goalNumber=Math.floor(Math.random()*101);
 
 $(function() {
   updateScore(guessesLeft);
@@ -14,4 +15,23 @@ function populateHighScores(scores) {
 
 function updateScore(score) {
   $('h2#score span#guessesLeft').append(score);
+}
+
+function checkGuess() {
+  var guess = parseInt(document.getElementById('bereich').value);
+  
+  guessesLeft = guessesLeft - 1;
+  updateScore(guessesLeft);
+  
+  if (guess == goalNumber) {
+    //victory
+  }
+  else if (guess > goalNumber) {
+    //too high message
+  }
+  else {
+    //too low message
+  }
+  
+  
 }
