@@ -5,6 +5,15 @@ var goalNumber=Math.floor(Math.random()*101);
 $(function() {
   updateScore(guessesLeft);
   populateHighScores(highScores);
+  
+  $('form#guessTheNumber').keypress(function(e) {
+    if(e.which == 13) {
+      checkGuess();
+      return false;
+    }
+  });
+  
+  $('#btnGuess').click(checkGuess);
 });
 
 function populateHighScores(scores) {
@@ -14,11 +23,11 @@ function populateHighScores(scores) {
 }
 
 function updateScore(score) {
-  $('h2#score span#guessesLeft').append(score);
+  $('h2#score span#guessesLeft').text(score);
 }
 
 function checkGuess() {
-  var guess = parseInt(document.getElementById('bereich').value);
+  var guess = parseInt($('#guess').value);
   
   guessesLeft = guessesLeft - 1;
   updateScore(guessesLeft);
@@ -32,6 +41,8 @@ function checkGuess() {
   else {
     //too low message
   }
-  
-  
+
+  if (guessesLeft <= 0) {
+    //lose
+  }
 }
